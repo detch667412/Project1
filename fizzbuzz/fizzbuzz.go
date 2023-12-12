@@ -15,24 +15,7 @@ func Fizzbuzz(number int) string {
 	return result
 }
 
-func Fizzbuzz2(number int) string {
-	if number == 2 {
-		return "2"
-	}
-	if number == 3 {
-		return "fizz"
-	}
-	if number == 4 {
-		return "4"
-	}
-	if number == 5 {
-		return "buzz"
-	}
-	if number == 12 {
-		return "12"
-	}
-	if number == 15 {
-		return "fizzbuzz"
-	}
-	return "1"
-}
+//1. readfile csv ที่มี header แต่ละคอลัมท์คั่นด้วย |
+// output : header แต่ละ
+
+//2. call api POST
