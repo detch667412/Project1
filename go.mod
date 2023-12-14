@@ -10,5 +10,7 @@ require (
 	github.com/stretchr/testify v1.8.4 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.51.0 // indirect
+	github.com/yeka/zip v0.0.0-20231116150916-03d6312748a9 // indirect
+	golang.org/x/crypto v0.14.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
