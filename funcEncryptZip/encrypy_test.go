@@ -14,7 +14,7 @@ func TestEncryptZip(t *testing.T) {
 		err := createTestFile(testFileName)
 		assert.NoError(t, err, "Error creating test file")
 		defer deleteTestFile(testFileName)
-		defer os.Remove("output.zip") //delete zip's test file
+		// defer os.Remove("output.zip") //delete zip's test file
 
 		// Test the function
 		err = EncryptZip(testFileName)
