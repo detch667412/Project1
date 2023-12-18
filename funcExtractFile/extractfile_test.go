@@ -14,7 +14,7 @@ func TestExtractFromZip(t *testing.T) {
 		defer os.RemoveAll(tempDir)
 
 		// Replace with the path to a sample zip file and the correct password
-		zipFilePath := "resources/zip_test.zip"
+		zipFilePath := "../resources/zip_test.zip"
 		password := "1234567890123456789012345678901234567890123456789012345678901234"
 		destinationDir := tempDir + "/out1"
 
