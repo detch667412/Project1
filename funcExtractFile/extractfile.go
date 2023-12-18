@@ -1,27 +1,13 @@
-package main
+package extractfile
 
 import (
 	"fmt"
 	"io"
-	"log"
 	"os"
 	"path/filepath"
 
 	"github.com/yeka/zip"
 )
-
-func main() {
-
-	encryptedFile := "resources/zip_test.zip"
-	password := "1234567890123456789012345678901234567890123456789012345678901234"
-	destinationDir := "extracted"
-
-	err := ExtractFromZip(encryptedFile, password, destinationDir)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-}
 
 func ExtractFromZip(encryptedFile, password, destinationDir string) error {
 	r, err := zip.OpenReader(encryptedFile)
@@ -69,3 +55,31 @@ func ExtractFromZip(encryptedFile, password, destinationDir string) error {
 
 	return nil
 }
+
+// func DecryptZip(encrpytedFile, password string) error {
+// 	r, err := zip.OpenReader(encrpytedFile)
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+// 	defer r.Close()
+
+// 	for _, f := range r.File {
+// 		if f.IsEncrypted() {
+// 			f.SetPassword(password)
+// 		}
+
+// 		r, err := f.Open()
+// 		if err != nil {
+// 			log.Fatal(err)
+// 		}
+
+// 		buf, err := ioutil.ReadAll(r)
+// 		if err != nil {
+// 			log.Fatal(err)
+// 		}
+// 		defer r.Close()
+
+// 		fmt.Printf("Size of %v: %v byte(s)\n", f.Name, len(buf))
+// 	}
+// 	return nil
+// }
