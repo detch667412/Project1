@@ -76,7 +76,7 @@ func TestReadCSVHeaderFromFile(t *testing.T) {
 		assert.Empty(t, records, "Expected an empty slice when reading from an empty CSV")
 	})
 	t.Run("Check header of input file(csv)", func(t *testing.T) {
-		filename := "../input.csv"
+		filename := "../resources/input.csv"
 		file, err := os.Open(filename)
 		if err != nil {
 			t.Fatalf("Error opening file %s: %v", filename, err)
