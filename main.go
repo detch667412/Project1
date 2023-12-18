@@ -18,7 +18,7 @@ func main() {
 }
 
 func EncryptZip(fileToZip string) error {
-	// Open the file to be zippedd
+	// Open the file to be zipped
 	file, err := os.Open(fileToZip)
 	if err != nil {
 		return err
