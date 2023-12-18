@@ -36,7 +36,7 @@ func TestExtractFromZip(t *testing.T) {
 
 	t.Run("Incorrect password", func(t *testing.T) {
 		// Replace with the path to a sample zip file and an incorrect password
-		zipFilePath := "resources/zip_test.zip"
+		zipFilePath := "../resources/zip_test.zip"
 		incorrectPassword := "wrongpassword"
 		destinationDir := t.TempDir()
 
@@ -46,7 +46,7 @@ func TestExtractFromZip(t *testing.T) {
 
 	t.Run("Destination directory creation error", func(t *testing.T) {
 		// Replace with the path to a sample zip file, correct password, and an invalid destination directory
-		zipFilePath := "resources/zip_test.zip"
+		zipFilePath := "../resources/zip_test.zip"
 		password := "1234567890123456789012345678901234567890123456789012345678901234"
 		invalidDestinationDir := "/root/invalid"
 
