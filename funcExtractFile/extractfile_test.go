@@ -23,6 +23,20 @@ func TestExtractFromZip(t *testing.T) {
 
 		// Add assertions for the extracted files if needed
 	})
+	t.Run("Successful extraction without password", func(t *testing.T) {
+		// Create a temporary directory for testing
+		tempDir := t.TempDir()
+		defer os.RemoveAll(tempDir)
+
+		// Replace with the path to a sample zip file without password
+		zipFilePath := "../resources/zip_nopass.zip"
+		destinationDir := tempDir + "/out1"
+
+		err := ExtractFromZip(zipFilePath, "", destinationDir)
+		assert.NoError(t, err, "Unexpected error during extraction")
+
+		// Add assertions for the extracted files if needed
+	})
 
 	t.Run("Invalid zip file", func(t *testing.T) {
 		// Replace with the path to an invalid zip file

@@ -5,6 +5,7 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/yeka/zip"
 )
@@ -17,7 +18,7 @@ func ExtractFromZip(encryptedFile, password, destinationDir string) error {
 	defer r.Close()
 
 	for _, f := range r.File {
-		if f.IsEncrypted() {
+		if f.IsEncrypted() && password != "" {
 			f.SetPassword(password)
 		}
 
@@ -26,6 +27,11 @@ func ExtractFromZip(encryptedFile, password, destinationDir string) error {
 			return err
 		}
 		defer rc.Close()
+
+		// Skip files with certain prefixes (e.g., __MACOSX/)
+		if skipEntry(f.Name) {
+			continue
+		}
 
 		// Create the file or directory in the destination directory
 		destPath := filepath.Join(destinationDir, f.Name)
@@ -54,6 +60,12 @@ func ExtractFromZip(encryptedFile, password, destinationDir string) error {
 	}
 
 	return nil
+}
+
+// Function to skip entries with certain prefixes
+func skipEntry(name string) bool {
+	// Add more conditions if needed
+	return strings.HasPrefix(name, "__MACOSX/")
 }
 
 // func DecryptZip(encrpytedFile, password string) error {
